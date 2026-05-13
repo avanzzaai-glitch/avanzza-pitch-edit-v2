@@ -1,12 +1,17 @@
 {
-  "name": "avanzza-pitch-edit-v2",
+  "name": "avanzza-pitch-edit",
   "version": "1.0.0",
+  "description": "Avanzza pitch video edit with Remotion and captions",
+  "type": "module",
   "scripts": {
-    "render": "remotion render PitchVideo out/avanzza_pitch_final.mp4 --codec=h264 --concurrency=1"
+    "render": "remotion render src/Root.tsx PitchVideo out/avanzza_pitch_final.mp4 --codec=h264 --allow-external-files"
   },
   "dependencies": {
-    "remotion": "^4.0.237",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "remotion": "4.0.237"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

@@ -1,4 +1,4 @@
-name: Render Pitch
+name: Render Avanzza Pitch Video
 
 on:
   push:
@@ -8,30 +8,34 @@ on:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install deps
-        run: npm install --prefer-offline --no-audit
-
-      - name: Ensure Chrome
-        run: npx remotion browser ensure
+        run: npm install
 
       - name: Create output dir
         run: mkdir -p out
 
-      - name: Render
-        run: npx remotion render PitchVideo out/avanzza_pitch_final.mp4 --codec=h264 --concurrency=1 --jpeg-quality=90
+      - name: Render video
+        run: npm run render 2>&1 | tail -100
+
+      - name: Check output
+        run: ls -lh out/
 
       - name: Upload artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: pitch-video
+          name: avanzza-pitch-final
           path: out/avanzza_pitch_final.mp4
+          retention-days: 7

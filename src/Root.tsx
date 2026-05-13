@@ -1,6 +1,6 @@
-import React from 'react';
-import { Composition } from 'remotion';
-import { PitchVideo } from './PitchVideoSimple';
+import React from "react";
+import { Composition } from "remotion";
+import { PitchVideo } from "./PitchVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
