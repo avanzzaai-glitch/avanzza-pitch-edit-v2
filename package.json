@@ -1,0 +1,12 @@
+{
+  "name": "avanzza-pitch-edit-v2",
+  "version": "1.0.0",
+  "scripts": {
+    "render": "remotion render PitchVideo out/avanzza_pitch_final.mp4 --codec=h264 --concurrency=1"
+  },
+  "dependencies": {
+    "remotion": "^4.0.237",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
